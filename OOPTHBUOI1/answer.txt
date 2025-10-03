@@ -1,0 +1,4 @@
+Q1.What happens if users choose “Cancel”?
+    In given code, the result will be check with YES_OPTION. So other value different from yes will be consider No. So the program will display No.
+Q2. How to customize the options to users?
+    Instead of using showConfirmDialog, we can use showOptionDialog  that i have used some time in lap1. With this method we can customize number of choices and what choices we want.
