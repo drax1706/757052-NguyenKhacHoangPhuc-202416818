@@ -1,0 +1,1 @@
+INDEX VERSION 1.134+C:\Users\chanl\Downloads\0Code\0Code\OOP\LAB02\Source code\AimsProject\.metadata\.plugins\org.eclipse.jdt.core

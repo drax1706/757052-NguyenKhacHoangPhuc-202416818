@@ -28,8 +28,8 @@ public class Aims {
 
         DigitalVideoDisc dvd4 = new DigitalVideoDisc(title, category, director, length, cost);
         anOrder.addDigitalVideoDisc(dvd4);
-        
-        
+        DigitalVideoDisc[] dvds = {dvd2, dvd3};
+        anOrder.addDigitalVideoDisc(dvds);
         System.out.println("Total Cost is: ");
         System.out.println(anOrder.totalCost());
         
@@ -38,3 +38,4 @@ public class Aims {
         System.exit(0);
     }
 }
+
