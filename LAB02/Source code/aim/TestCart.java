@@ -18,6 +18,14 @@ public class TestCart {
 
 
         cart.printCart();
+        System.out.println("\n--- Search by ID ---");
+        cart.searchId(2);
+        cart.searchId(5);
+
+        System.out.println("\n--- Search by Title ---");
+        cart.searchTitle("Aladin");
+        cart.searchTitle("Avatar2"); 
+
 
     }
 }
