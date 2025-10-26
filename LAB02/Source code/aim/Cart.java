@@ -1,5 +1,6 @@
 package aim;
 
+
 public class Cart {
     public static final int MAX_NUMBERS_ORDERED = 20;
     private DigitalVideoDisc items0rdered[] = new DigitalVideoDisc[MAX_NUMBERS_ORDERED];
@@ -67,12 +68,13 @@ public class Cart {
     }
     
     
-    public void printTitles() {
-    	System.out.println("Cart:");
+    public void printCart() {
+        System.out.println("*********************CART*********************");
+        System.out.println("\nOrdered Items:\n");
         for (int i = 0; i < qtyOrdered; i++) {
-            System.out.println((i + 1) + ". " + items0rdered[i].getTitle()+"-");
+            System.out.println((i + 1) + ". " + items0rdered[i].toString());
         }
+        System.out.println("\nTotal cost: " + totalCost());
+        System.out.println("*************************************************");
     }
-    
-    
 }
