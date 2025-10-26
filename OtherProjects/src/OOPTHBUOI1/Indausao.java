@@ -1,4 +1,4 @@
-package OOP.OOPTHBUOI1;
+package OOPTHBUOI1;
 import java.util.Scanner;
 public class Indausao {
     public static void main(String[] args) {

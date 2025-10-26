@@ -1,4 +1,4 @@
-package OOP.OOPTHBUOI1;
+package OOPTHBUOI1;
 import javax.swing.JOptionPane;
 
 public class Giaiphuongtrinh {
