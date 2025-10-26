@@ -1,4 +1,4 @@
-package aims;
+package aim;
 
 public class DigitalVideoDisc {
 	private String title;
