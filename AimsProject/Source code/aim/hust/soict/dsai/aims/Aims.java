@@ -1,5 +1,7 @@
-package aim;
+package hust.soict.dsai.aims;
 import javax.swing.JOptionPane;
+import hust.soict.dsai.aims.disc.DigitalVideoDisc;
+import hust.soict.dsai.aims.cart.Cart;
 
 
 public class Aims {
@@ -68,7 +70,6 @@ public class Aims {
         
         System.out.println("Total Cost is: ");
         System.out.println(anOrder.totalCost());
-        anOrder.printTitles();
         System.out.println("Exit");
         System.exit(0);
     }
