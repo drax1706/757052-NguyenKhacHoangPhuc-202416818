@@ -1,0 +1,7 @@
+Question: Is JAVA a Pass by Value or a Pass by Reference programming language?
+
+
+Java is a pass by Value language.With primitive types, Java copy value => don't affect origin. With objects, it copy memory address so both variables points to same object.
+
+after swap  only change copy off refences => objects not change
+changeTitle change attribute of origin object so title will be change.
