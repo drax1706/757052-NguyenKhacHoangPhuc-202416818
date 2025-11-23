@@ -1,0 +1,18 @@
+1.What class should implement the Comparable interface?
+
+Because Cart contains List<Media>. So sort this list we need interface in Media. and Book,DVD,CD is all media so we only nead com by media, if u want other class we can override if need.
+2. In those classes, how should you implement the compareTo()method be to reflect the ordering that we want? 
+public int compareTo(Media other) {
+
+    int titleCompare = this.getTitle().compareToIgnoreCase(other.getTitle());
+    if (titleCompare != 0) {
+        return titleCompare;
+    }
+    return Float.compare(other.getCost(), this.getCost());
+}
+ compare by title if same thif sort directly else go to compare cost..... 
+3. Can we have two ordering rules of the item ?
+Only with comparable iss not possible but we can do like comparaTor to sort by 2 category.
+
+4. Suppose the DVDs has a different ordering rule from the other media types, that is by title, then decreasing length, then cost. How would you modify your code to allow this? 
+we can easily do this with override. other type will compare like normal and we will code another comparator to sort DVDs like we want.

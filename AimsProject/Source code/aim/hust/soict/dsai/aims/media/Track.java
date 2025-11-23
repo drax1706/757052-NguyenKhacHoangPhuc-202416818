@@ -35,5 +35,10 @@ public class Track implements Playable {
                this.title.equalsIgnoreCase(other.title) &&
                this.length == other.length;
     }
+    @Override
+    public String toString() {
+        return "Track - " + title + " - " + length;
+    }
+
 
 }
