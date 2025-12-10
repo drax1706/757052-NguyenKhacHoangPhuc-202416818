@@ -27,7 +27,11 @@ public abstract class Media {
     }
 
     public Media(String title, String category, float cost) {
-        this(title, category);
+        if (cost < 0) {
+            throw new IllegalArgumentException("Cost cannot be negative!");
+        }
+        this.title = title;
+        this.category = category;
         this.cost = cost;
     }
 
@@ -67,16 +71,17 @@ public abstract class Media {
         if (this == obj) return true;
         if (obj == null) return false;
         if (!(obj instanceof Media)) return false;
+
         Media other = (Media) obj;
-        return this.title != null && this.title.equalsIgnoreCase(other.title);
+        if (this.title == null && other.title == null) return true;
+        if (this.title == null || other.title == null) return false;
+        return this.title.equalsIgnoreCase(other.title);
     }
-    
     public static final Comparator<Media> COMPARE_BY_TITLE_COST = new MediaComparatorByTitleCost();
     public static final Comparator<Media> COMPARE_BY_COST_TITLE = new MediaComparatorByCostTitle();
     @Override
     public String toString() {
         return getTitle() + " - " + getCategory() + " - " + getCost() + " $";
     }
-
-
+    
 }

@@ -4,7 +4,8 @@ import java.util.Scanner;
 import hust.soict.dsai.aims.store.Store;
 import hust.soict.dsai.aims.cart.Cart;
 import hust.soict.dsai.aims.media.*;
-
+import hust.soict.dsai.aims.exception.PlayerException;
+import hust.soict.dsai.aims.exception.LimitExceededException;
 public class Aims {
 
     private Store store = new Store();  
@@ -47,7 +48,6 @@ public class Aims {
         }
     }
 
-    
     ////// INIT STORE
     public void initStore() {
 
@@ -118,11 +118,22 @@ public class Aims {
 
             switch (choice) {
                 case 1:
-                    cart.addMedia(m);
+                    try {
+                        cart.addMedia(m);
+                        System.out.println("Added to cart.");
+                    } catch (LimitExceededException e) {
+                        System.err.println("Cannot add media: " + e.getMessage());
+                        e.printStackTrace();
+                    }
                     break;
                 case 2:
                     if (m instanceof Playable) {
-                        ((Playable) m).play();
+                        try {
+                            ((Playable) m).play();
+                        } catch (PlayerException e) {
+                            System.err.println("Exception when playing media: " + e.getMessage());
+                            e.printStackTrace();
+                        }
                     } else {
                         System.out.println("Not playable.");
                     }
@@ -151,7 +162,13 @@ public class Aims {
         Media m = store.searchMediaByTitle(title);
 
         if (m != null) {
-            cart.addMedia(m);
+        	try {
+                cart.addMedia(m);
+                System.out.println("Added to cart.");
+            } catch (LimitExceededException e) {
+                System.err.println("Cannot add media: " + e.getMessage());
+                e.printStackTrace();
+            }
         } else {
             System.out.println("Not found.");
         }
@@ -162,12 +179,20 @@ public class Aims {
         String title = scanner.nextLine();
         Media m = store.searchMediaByTitle(title);
 
-        if (m instanceof Playable) {
-            ((Playable) m).play();
+        if (m == null) {
+            System.out.println("Media not found.");
+        } else if (m instanceof Playable) {
+            try {
+                ((Playable) m).play();
+            } catch (PlayerException e) {
+                System.err.println("Exception when playing media: " + e.getMessage());
+                e.printStackTrace();
+            }
         } else {
-            System.out.println("Media not playable or not found.");
+            System.out.println("Media not playable.");
         }
     }
+
     public void updateStoreMenu() {
         System.out.print("Enter title to remove from store: ");
         String title = scanner.nextLine();
@@ -180,6 +205,7 @@ public class Aims {
             System.out.println("Not found.");
         }
     }
+
     public void cartMenuLoop() {
         while (true) {
             cartMenu();   
@@ -258,8 +284,15 @@ public class Aims {
         String title = scanner.nextLine();
 
         Media m = cart.searchMedia(title);
-        if (m instanceof Playable) {
-            ((Playable) m).play();
+        if (m == null) {
+            System.out.println("Not playable or not found.");
+        } else if (m instanceof Playable) {
+            try {
+                ((Playable) m).play();
+            } catch (PlayerException e) {
+                System.err.println("Exception when playing media: " + e.getMessage());
+                e.printStackTrace();
+            }
         } else {
             System.out.println("Not playable or not found.");
         }

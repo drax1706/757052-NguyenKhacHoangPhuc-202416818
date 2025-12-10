@@ -5,8 +5,7 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry excluding="aim/" kind="src" path="Source code"/>
-	<classpathentry kind="src" path="Source code/aim"/>
+	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="C:/Users/chanl/Downloads/openjfx-21.0.2_windows-x64_bin-sdk/javafx-sdk-21.0.2/lib/materialfx-11.17.0-all.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
